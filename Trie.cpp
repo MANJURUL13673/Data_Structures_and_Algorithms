@@ -1,3 +1,5 @@
+//works only for small letters
+//if want to change for upper letters then need to change at line 20 and 31
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -11,7 +13,7 @@ struct node {
             next[i] = NULL;
     }
 } * root;
-void insert(char* str, int len)
+void insert(string str, int len)
 {
     node* curr = root;
     for (int i = 0; i < len; i++) {
@@ -22,7 +24,7 @@ void insert(char* str, int len)
     }
     curr->endmark = true;
 }
-bool search(char* str, int len)
+bool search(string str, int len)
 {
     node* curr = root;
     for (int i = 0; i < len; i++) {
@@ -49,17 +51,17 @@ int main()
     int num_word;
     cin >> num_word;
     for (int i = 1; i <= num_word; i++) {
-        char str[50];
-        scanf("%s", str);
-        insert(str, strlen(str));
+        string str;
+        cin>>str;
+        insert(str, str.length());
     }
     puts("ENTER NUMBER OF QUERY");
     int query;
     cin >> query;
     for (int i = 1; i <= query; i++) {
-        char str[50];
-        scanf("%s", str);
-        if (search(str, strlen(str)))
+        string str;
+        cin>>str;
+        if (search(str, str.length()))
             puts("FOUND");
         else
             puts("NOT FOUND");
